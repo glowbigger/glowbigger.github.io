@@ -1,0 +1,142 @@
+/* variables */
+:root {
+  --bg:         #1F1F28;
+  --lbg:        #2a2a37; /* light background */
+  --fg:         #DCD7BA;
+  --dfg:        #53536b; /* dark foreground */
+  --red:        #C34043;
+  --green:      #76946A;
+  --blue:       #7E9CD8;
+  --yellow:     #C0A36E;
+  --orange:     #f6983a;
+  --purple:     #957FB8;
+  --gray:       #727169;
+  --lightgray:  #727169;
+  --black:      #16161d;
+}
+
+/* text selection override */
+::selection, -moz-selection {
+  color: var(--fg);
+  background: var(--gray);
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  background-color: var(--black);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100vh;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.control-bar {
+  display: flex;
+  height: 6vh;
+  border-bottom: 1px solid var(--lbg);
+  border-top: 1px solid var(--lbg);
+  font-size: 4vh;
+  font-style: italic;
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--lbg);
+  color: var(--fg);
+}
+
+.control-bar button, .control-bar select {
+  margin: 0.4vh 0.4vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border-radius: 8px;
+  font-size: 2.5vh;
+  font-weight: 700;
+  border: 3px solid var(--bg);
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.control-bar button:hover, select:hover {
+  border-color: var(--black); 
+}
+
+.control-bar button:hover:active {
+  background-color: var(--black);
+}
+
+.control-bar h4 {
+  padding: 0vh 1vw;
+  margin: 0;
+}
+
+#example-selection {
+  margin-left: auto;
+}
+
+.textBox {
+  height: 100%;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 1vw;
+  white-space: pre;
+  resize: none;
+  padding: 1vmin;
+}
+
+#outputBox {
+  background-color: var(--black);
+  color: var(--dfg);
+  width: 45vw;
+}
+
+#inputBox {
+  position: relative;
+  flex-flow: column;
+  width: 50vw;
+  height: 100%;
+  display: flex;
+}
+
+#editor {
+  position: relative;
+  color: transparent;
+  caret-color: var(--fg);
+}
+
+#highlighter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; 
+  padding: 1vmin;
+  user-select: none;
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+/* make contenteditable focus border invisible */
+[contenteditable]:focus {
+  outline: 0px solid transparent;
+}
+
+/* color scheme */
+.hl_fg          { color: var(--fg); }
+.hl_bg          { color: var(--bg); }
+.hl_string      { color: var(--red); font-style: italic }
+.hl_type        { color: var(--blue); }
+.hl_number      { color: var(--green); }
+.hl_truefalse   { color: var(--green); font-style: italic }
+.hl_delimiter   { color: var(--yellow); }
+.hl_keyword     { color: var(--purple); }
+.hl_comment     { color: var(--gray); font-style: italic; }
